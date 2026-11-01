@@ -20,6 +20,8 @@ Preencha `TELEGRAM_BOT_TOKEN` no arquivo `.env` e execute:
 npm run dev
 ```
 
+O modo de desenvolvimento executa TypeScript diretamente e reinicia ao detectar alterações no código. Para executar a versão compilada, use `npm start`; esse comando compila o projeto antes de iniciá-lo. Se o Telegram responder `getMe: 404`, gere um novo token ou copie-o novamente no @BotFather e atualize `TELEGRAM_BOT_TOKEN` no `.env`. Nunca compartilhe esse token.
+
 O bot usa mensagens HTML suportadas pela Bot API do Telegram. Essa formatação permite negrito, itálico e links no chat; CSS e bibliotecas de interface não são aplicáveis às mensagens do Telegram.
 
 ## Estrutura
