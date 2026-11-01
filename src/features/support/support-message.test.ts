@@ -9,6 +9,7 @@ describe("support messages", () => {
     expect(createWelcomeMessage()).toContain(
       "<b>Olá! Sou o assistente de suporte técnico da Atlas.</b>",
     );
+    expect(createWelcomeMessage()).toContain("/personas");
     expect(createWelcomeMessage()).toContain("/ajuda");
   });
 
@@ -16,6 +17,7 @@ describe("support messages", () => {
     expect(createHelpMessage()).toContain(
       "Envie uma mensagem descrevendo seu problema técnico.",
     );
+    expect(createHelpMessage()).toContain("/persona <id>");
     expect(createHelpMessage()).toContain("/start");
   });
 });

@@ -1,10 +1,14 @@
 import "dotenv/config";
 import { createBot } from "./bot/create-bot.js";
 import { getStartupErrorMessage } from "./bot/startup-error.js";
+import { OpenAiCompatibleClient } from "./features/personas/openai-compatible.client.js";
 import { loadConfig } from "./config/env.js";
 
-const { telegramBotToken } = loadConfig();
-const bot = createBot(telegramBotToken);
+const config = loadConfig();
+const personaClient = config.llm
+  ? new OpenAiCompatibleClient(config.llm)
+  : undefined;
+const bot = createBot(config.telegramBotToken, personaClient);
 
 bot.catch((error) => {
   console.error("Erro ao processar atualização do Telegram:", error);
